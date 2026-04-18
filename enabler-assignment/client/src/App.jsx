@@ -56,7 +56,7 @@ function App() {
       formData.append("sales", files.sales);
 
      const res = await axios.post(
-       `${process.env.REACT_APP_BASE_URL}/api/upload`,
+       `${import.meta.env.VITE_BASE_URL}/api/upload`,
        formData,
      );
       setData(res.data);
