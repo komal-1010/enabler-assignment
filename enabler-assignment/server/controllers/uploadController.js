@@ -3,7 +3,9 @@ const validate = require("../utils/validate");
 const linkData = require("../services/linkService");
 
 exports.handleUpload = async (req, res) => {
+    console.log("handleUpload function started"); // Added log
     try {
+        console.log("Request received:", req.body, req.files); // Added log
         const existingFile = req.files["existing"][0];
         const newFile = req.files["new"][0];
         const salesFile = req.files["sales"][0];
@@ -30,6 +32,7 @@ exports.handleUpload = async (req, res) => {
             }
         });
     } catch (err) {
+        console.error("Error in handleUpload:", err); // Added log
         res.status(500).json({ error: err.message });
     }
 };
